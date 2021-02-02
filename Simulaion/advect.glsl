@@ -24,6 +24,10 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         
     }else{
         
+        
+
+
+        // Gauss
         for(int i = -1; i < 2; i++){
             for(int j = -1; j < 2; j++){
                 vec2 offset = vec2(i,j)*ps;
