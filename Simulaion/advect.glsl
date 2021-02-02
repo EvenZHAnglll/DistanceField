@@ -1,5 +1,9 @@
 #iKeyboard
 #iChannel0 "file://subtractPressureGradient.glsl"
+#iChannel1 "file://noise.png"
+
+#iChannel0::MinFilter "Nearest"
+#iChannel0::MagFilter "Nearest"
 
 const int KEY_SPACE  = 32;
  
@@ -18,9 +22,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 col = vec3(.0);
     
     if(isInitDraw()){
-    
-        uv = abs(uv - 0.5);
-        col = vec3(smoothstep( 0.201, 0.2, uv.x)*smoothstep( 0.201, 0.2, uv.y));
+        col += texture(iChannel1, uv).xyz;
+        // uv = abs(uv - 0.5);
+        // col = vec3(smoothstep( 0.201, 0.2, uv.x)*smoothstep( 0.201, 0.2, uv.y));
         
     }else{
         
